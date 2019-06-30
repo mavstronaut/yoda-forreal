@@ -1,0 +1,139 @@
+body {
+    background-image: url('../images/battleground.jpg');
+    background-size: 100%;
+    /* position: absolute; */
+    top: 100%;
+    left: 100%;
+    /* transform: translateX(-50%)translateY(-50%); */
+    text-align: center;
+}
+
+  .container {
+      height: auto;
+      width: 100%;
+      /* min-width: 400px;
+      max-width: 400px; */
+      background: radial-gradient(cornflowerblue, #3557ce80);
+      font: gold;
+  }
+
+  .startg {
+    text-align: center;
+
+  }
+  
+  h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 24px;
+    color: lightyellow;
+    padding: 13px;
+  }
+
+   #maingame {
+    font-family: 'Cinzel', serif;
+    font-size: 24px;
+    padding: 13px;
+    margin: 10px;
+    color: lightyellow;
+  }
+
+  h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 24px;
+    padding: 7px;
+    color: #ffffff;
+  }
+
+  h5 {
+    font-family: 'Cinzel', serif;
+    font-size: 24px;
+    padding: 7px;
+    color: #ffffff;
+  }
+
+  #startButton {
+    font-family: 'Cinzel', serif;
+    font-size: 24px;
+    padding: 7px;
+    margin: 10px;
+    color: #ffffff;
+  }
+
+  p {
+    font-family: 'Cinzel', serif;
+    font-size: 24px;
+    padding: 7px;
+    color: #ffffff;
+  }
+
+  .question {
+    font-family: 'Cinzel', serif;
+    font-size: 24px;
+    padding: 7px;
+    color: #ffffff;
+  }
+
+
+  button {
+    font-family: 'Cinzel', serif;
+    background-color: lightslategrey;
+    border-radius: 25px;
+    text-decoration: none;
+    border: darkred 5px;
+    font-size: 32px;
+    padding: 10px;
+    margin: 5px;
+    width: 100%;
+    color: #ffffff;
+    display: inline-block;
+  }
+
+  .btn {
+    font-family: 'Cinzel', serif;
+    background-color: lightslategrey;
+    text-decoration: none;
+    font-size: 32px;
+    color: #ffffff;
+  }
+
+  #flexcont {
+    display: flex; /* or inline-flex */
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  #ritem {
+    flex-shrink: 6;
+  }
+
+  .flex-column {
+    display: flex; /* or inline-flex */
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 30%;
+    height: auto;
+  }
+
+  .flex-row {
+    display: flex; /* or inline-flex */
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: auto;
+    width: 100%;
+  }
+
+  .col-item {
+    width: auto;
+    height: auto;
+  }
+
+  .row-item {
+    width: 20%;
+    height: auto;
+    border: 3px #dbdbdb;
+    
+  }
+  
+  .a-row-item {
+    width: 20%;
+    height: auto;
+  }

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Star Sprite Clicker</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./assets/css/style.css'>
+    <link href="https://fonts.googleapis.com/css?family=Cinzel&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src='./js/main.js'></script>
+    <script src='./js/reset.js'></script>
+    <script src="https://kit.fontawesome.com/0a4035d3a2.js"></script>
+
+</head>
+<body>
+    <!-- Create start screen -->
+    <div id="intro" class="container">
+        <div id="title" class="item question">
+            <h1>Clicker Brawl</h1>
+        </div>
+        <div id="startg">
+            <h1>Clicker Classic</h1>
+            <button title="fight" id="startButton" class="menu-btn">F I G H T</button>
+
+            <p>Rules: Movement buttons or arrow keys to move.<br>
+                Try not to get cornered.<br>
+                Eliminate the enemies before the clock runs out.</p>
+            <!-- <h1>Bonus Modes</h1>
+            <button title="very easy" >Strategy Mode (turn based)</button><br>
+            <button title="not difficult">Survival (eliminate all enemies)</button><br> -->
+        </div>
+        
+    </div>
+
+    <!-- Audio Control Buttons -->
+
+    <div id="flexcont">
+        <div class="ritem">
+            <button class="btn play-button" id ="play-button"><i class="far fa-play-circle"></i></p>
+        </div>
+        <div class="ritem">
+            <button class="btn mute-button" id ="mute-button"><i class="far fa-pause-circle"></i></p>
+        </div>
+    </div>
+    
+
+    
+    <!-- Hidden Game Screen, needs updating -->
+
+    <div id="mainGame" style="display: none">
+        <div class="flex-column">
+        <!-- Create div elements for a flexbox grid of columns and rows -->
+            <div class="flex-row" value="1" title="y">
+                <div class="row-item" id="top-left" value="-1" title="x"></div>
+                <div class="row-item" id="semi-left" value="-0.5" title="x"></div>
+                <div class="row-item" id="mid" value="0" title="x"></div>
+                <div class="row-item" id="semi-right" value="0.5" title="x"></div>
+                <div class="row-item" id="top-right" value="1" title="x"></div>
+            </div>
+            <div class="flex-row" value="0.5" title="y">
+                <div class="row-item" id="semi-left" value="-1" title="x"></div>
+                <div class="row-item" value="-0.5" title="x"></div>
+                <div class="row-item" id="semi-mid" value="0" title="x"></div>
+                <div class="row-item" value="0.5" title="x"></div>
+                <div class="row-item" id="semi-right" value="1" title="x"></div>
+            </div>
+            <div class="flex-row" value="0" title="y">
+                <div class="row-item" id="left" value="-1" title="x"></div>
+                <div class="row-item" value="-0.5" title="x"></div>
+                <div class="row-item" id="mid" value="0" title="x"></div>
+                <div class="row-item" value="0.5" title="x"></div>
+                <div class="row-item" id="right" value="1" title="x"></div>
+            </div>
+            <div class="flex-row" value="-0.5" title="y">
+                <div class="row-item" id="n-semi-left" value="-1" title="x"></div>
+                <div class="row-item" value="-0.5" title="x"></div>
+                <div class="row-item" id="n-semi-mid" value="0" title="x"></div>
+                <div class="row-item" value="0.5" title="x"></div>
+                <div class="row-item" id="n-semi-right" value="1" title="x"></div>
+            </div>
+            <div class="flex-row" value="-1" title="y">
+                <div class="row-item" id="bottom-left" value="-1" title="x"></div>
+                <div class="row-item" id="n-semi-left" value="-0.5" title="x"></div>
+                <div class="row-item" id="bottom-mid" value="0" title="x"></div>
+                <div class="row-item" id="n-semi-right" value="0.5" title="x"></div>
+                <div class="row-item" id="bottom-right" value="1" title="x"></div>
+            </div>
+
+        </div>
+        
+
+        <div class="flex-column" id="actions" style="display: block">
+            <!-- Create functions for actions and organize these elements here -->
+            <div class="flex-row">
+                <div class="a-row-item" id="blank"></div>
+                <div class="a-row-item" id="up"><button class="btn" onclick="moveUp()"><i class="fas fa-caret-up"></i></button></div>
+                <div class="a-row-item" id="blank"></div>
+            </div>
+            <div class="flex-row">
+                <div class="a-row-item" id="left"><button class="btn" onclick="moveLeft()"><i class="fas fa-caret-left"></i></button></div>
+                <div class="a-row-item" id="attack"><button class="btn" onclick="attack()"><i class="fal fa-axe"></i></button></div>
+                <div class="a-row-item" id="right"><button class="btn" onclick="moveRight()"><i class="fas fa-caret-right"></i></button></div>
+            </div>
+            <div class="flex-row">
+                <div class="a-row-item" id="blank"></div>
+                <div class="a-row-item" id="down"><button class="btn" onclick="moveDown()"><i class="fas fa-caret-down"></i></button></div>
+                <div class="a-row-item" id="blank"></div>
+            </div>
+        </div>
+
+        
+        <!-- Add html/css/js elements which display game-round information.
+            * Enemies remaining, health, damage, defense -->
+
+        <div class="flex-column" id="inventory" style="display: block" >
+            <div class="col-item" id="name" value="player"><p>Yoda</p></div>
+            <div class="col-item" id="health" value="hp"><i class="fas fa-heartbeat"></i> <p id="life">100</p></div>
+            <div class="col-item" id="damage" value="dmg"><i class="fal fa-axe"></i> <p id="dmg">Damage: 5</p></div>
+            <div class="col-item" id="defense" value="def"><i class="fas fa-shield-alt"></i> <p id="def">Defense: 5 </p></div>
+        </div>
+        <div class="flex-column" id="inventory" style="display: block">
+            <div class="col-item" id="enemy-name" value="Enemy"><p></p></div>
+            <div class="col-item" id="health" value="hp"><i class="fas fa-heartbeat"></i> <p id="life">100</p></div>
+            <div class="col-item" id="damage" value="dmg"><i class="fal fa-axe"></i> <p id="dmg">Damage: 5</p></div>
+            <div class="col-item" id="defense" value="def"><i class="fas fa-shield-alt"></i> <p id="def">Defense: 5 </p></div>
+        </div>
+    </div>
+        
+
+    <!-- Hidden Game Over Screen -->
+        
+    
+        <div id="youLose" class="btn" style="display: none">
+        
+            <h1>You lose, good day sir.</h1>
+
+            <div>
+                <button onclick="restart()">Play again?</button>
+            </div>
+            <!-- enemies remaining function? -->
+            <p id="correctWordWas"></p>
+
+        </div>
+
+        <div id="youWin" class="btn" style="display: none">
+
+            <h2>Test of Mouse: Complete.<br>
+                You are licensed for clicking.</h2>
+
+            <div>
+                <button onclick="restart()">Play again?</button>
+            </div>
+
+        </div>
+
+</body>
+</html>
